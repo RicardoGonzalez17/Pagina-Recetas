@@ -3,22 +3,323 @@
     Layout = null;
 }
 
+<!doctype html>
+<html>
+<head>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/fonts/font-awesome/css/fontawesome-all.min.css"  rel="stylesheet"/>
+    <link href="~/Content/fonts/font-awesome/css/fa-brands.min.css"  rel="stylesheet"/>
+    <link href="~/Content/fonts/font-awesome/css/fa-regular.min.css"  rel="stylesheet"/>
+    <link href="~/Content/fonts/font-awesome/css/fa-solid.min.css" rel="stylesheet" />
+    <link href="~/Content/fonts/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        .borderGreen {
+            border-left:2px solid green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body class="container">
+    <div class="block-flat">
+        <div class="header col-md-12 row" style="margin-right: 0px;">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <h3>Recetas</h3>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button class="btn btn-primary" type="button" onclick="recetas.new()"><i class="fa fa-plus"></i> Agregar receta</button>    
+            </div>
+            <div style="margin-top: 30px;">
+                <table class="table table-striped" style="display:none;" id="tbl_Recetas">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Puntuación</th>
+                            <th>Ver</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
 
-<label for="txt_instrucciones">Instrucciones</label><br />
+            </div>
+        </div>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Cantidad</th>
-            <th>Unidad</th>
-            <th>Ingrediente</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><input type="number" /></td>
-            <td><select><option>Gramos</option>><option>Kilogramos</option>><option>Cucharadas</option>><option>Piscas</option></select></td>
-            <td><input type="text" /></td>
-        </tr>
-    </tbody>
-</table>
+    <div aria-hidden="true" aria-labelledby="mod_receta_detalle" class="modal fade mod_receta_detalle" id="mod_receta_detalle" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" class="close" data-dismiss="modal" type="button" tabindex="-1">×</button>
+                        <h4 class="modal-title" id="mod_receta_title"></h4> 
+                    </div>
+                    <div class="modal-body">
+                        <div class="row borderGreen">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <label>Categoría:</label>                            
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+                                <strong id="mod_receta_categoria"></strong>
+                            </div>
+                        </div>
+                        <div class="row borderGreen">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <label>Usuario:</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+                                <strong id="mod_receta_Usuario"></strong>
+                            </div>
+                        </div>
+                        <div class="row borderGreen">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <label>Puntuación:</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+                                <strong id="mod_receta_puntuacion"></strong>
+                            </div>
+                        </div>
+                        <div class="row borderGreen">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <label>Fecha:</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+                                <strong id="mod_receta_fecha"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button" tabindex="-1">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div aria-hidden="true" aria-labelledby="mod_receta" class="modal fade mod_receta" id="mod_receta" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button" tabindex="-1">×</button>
+                    <h4 class="modal-title" id="mod_receta"></h4>
+                </div>
+                <form action="#" id="form_receta">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txt_receta_nombre">Nombre</label>
+                            <input class="form-control input-md" type="text" maxlength="50" placeholder="Nombre de la receta" id="txt_receta_nombre" name="txt_receta_nombre"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_receta_categoria">Categoría</label>
+                            <select id="txt_receta_categoria" name="txt_receta_categoria" class="form-control"></select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" onclick="ingredientes.new()" type="button" style="border-radius: 50%;"><i class="fa fa-plus"></i></button>
+                            <label for="tbl_ingredientes">Ingredientes</label>
+                            <table class="table table-responsive" id="tbl_ingredientes">
+                                <thead>
+                                    <tr>
+                                        <th class="col-lg-1 col-md-2 col-sm-3 col-xs-3">Cantidad</th>
+                                        <th class="col-lg-4 col-md-5 col-sm-3 col-xs-3">Unidad</th>
+                                        <th class="col-lg-7 col-md-5 col-sm-6 col-xs-6">Ingrediente</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Cancelar</button>
+                        <button class="btn btn-primary" type="submit" onclick="recetas.validate()"><i class="fa fa-save"></i> Guardar</button>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/js/jquery.min.js"  type="text/javascript"></script>
+    <script src="~/Content/js/bootstrap.min.js"  type="text/javascript"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="~/Content/js/moment.js" type="text/javascript"></script>
+    <script src="~/Content/js/jquery-validation-1.14.0/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var recetas = (function () {
+            var formReceta;
+            return {
+                get: function () {
+                    ajax.get('/Recetas/Get', null,
+                        //Al responder
+                        function (data) {
+                            $("#tbl_Recetas").DataTable({
+                                destroy: true,
+                                info: false,
+                                searching: true,
+                                "bAutoWidth": false,
+                                "bProcessing": false,
+                                //"bLengthChange": false,
+                                "aaData": data,
+                                "aoColumns": [
+                                    { "mData": "Receta" },
+                                    { "mData": "Categoria" },
+                                    { "mData": "Usuario" },
+                                    {
+                                        "mRender": function (data, type, full) {
+                                            var fecha = moment(full.Fecha).toDate();
+                                            return moment(fecha).format('DD/MMM/YYYY ');
+                                        }
+                                    },
+                                    { "mData": "Puntuacion" },
+                                    {
+                                        "mRender": function (data, type, full) {
+                                            return '<button type="button" class="btn btn-success" onclick="recetas.getbyId('+full.PK_Receta+')"><i class="fa fa-list"></i></button>';
+                                        }
+                                    }
+                                ],
+                                "language": {
+                                    "url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                                }
+                            });
+                            if (data.length > 0) $("#tbl_Recetas").show(); else $("#tbl_Recetas").hide();
+                        });
+                },
+                getbyId: function (id) {
+                    ajax.get('/Recetas/GetbyId', { id: id },
+                        function (data) {
+                            $("#mod_receta_title").text(data.Receta);
+                            $("#mod_receta_categoria").text(data.Categoria);
+                            $("#mod_receta_Usuario").text(data.Usuario);
+
+                            var estrellas = '';
+                            switch (data.Puntuacion) {
+                                case 0: estrellas = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+                                    break;
+                                case 1: estrellas = '<i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+                                    break;
+                                case 2: estrellas = '<i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+                                    break;
+                                case 3: estrellas = '<i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+                                    break;
+                                case 4: estrellas = '<i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star"></i>';
+                                    break;
+                                case 5: estrellas = '<i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i><i class="fa fa-star" style="color:yellow;"></i>';
+                                    break;
+                            }
+
+                            $("#mod_receta_puntuacion").html(estrellas);
+                            var fecha = moment(data.Fecha).toDate();
+                            $("#mod_receta_fecha").text(moment(fecha).format('DD/MMM/YYYY HH:mm a'));
+                            $("#mod_receta_detalle").modal('show');
+                    });
+                },
+                new: function () {
+                    categorias.get(function (data) {
+                        $("#txt_receta_categoria option").remove();
+                        var html = '<option value="null" selected disabled>Seleccione una categoría</option>';
+                        for (var i = data.length-1; i>=0; i--) {
+                            html += '<option value="'+data[i].PK_Categoria+'">'+data[i].Categoria+'</option>';
+                        }
+                        $("#txt_receta_categoria").append(html);
+                    });
+                    $("#mod_receta").modal('show');
+                },
+                add: function (receta) {
+                    ajax.post('/Recetas/Add', receta, function (data) {
+                        if (data == "True") {
+                            alert('Agregado con éxito');
+                            $("#mod_receta").modal('hide');
+                            recetas.get();
+                        }
+                    });
+                },
+                update: function(receta) {
+
+                },
+                delete: function(receta) {
+
+                },
+                validate: function() {
+                    formReceta = $("#form_receta").validate({
+                        rules:
+                        {
+                            txt_receta_nombre: { required: true },
+                            txt_receta_categoria: { required: true }
+                        },
+                        messages:
+                        {
+                            txt_receta_nombre: { required: 'Campo requerido' },
+                            txt_receta_categoria: { required: 'Campo requerido' }
+                        },
+                        submitHandler: function (formReceta) {
+                            var obj = {
+                                Receta: $("#txt_receta_nombre").val(),
+                                Categoria: $("#txt_receta_categoria").val(),
+                                Puntuacion:0
+                            }
+                            recetas.add(obj);
+                            return false;
+                        }
+                    });
+                },
+
+            }
+        })();
+        var ingredientes = (function () {
+            var htmlunidades='';
+            return {
+                new: function () {
+                    ajax.get('/Recetas/Unidades', null, function (data) {
+                        var html = '';
+                        for (var i = data.length - 1; i >= 0; i--) {
+                            html += '<option value="' + data[i].PK_Unidad + '">' + data[i].Unidad + '</option>';
+                        }
+                        var renglon = '<tr><td><input type="number" class="input-md form-control" min="0.01" step="1" max="10000"/></td><td><select class="form-control">' + html+ '</select></td><td><input type="text" class="input-md form-control"/></td></tr>';
+                        $("#tbl_ingredientes tbody").append(renglon);
+                    });                    
+                }
+            }
+        })();
+
+        var categorias = (function () {
+            return {
+                get: function(callback) {
+                    ajax.get('/Recetas/Categorias', null, callback);
+                }
+            }
+        })();
+        
+
+        var ajax = (function() {
+            return {
+                get: function(url,params,done) {
+                    $.get(url, params).done(done).fail(ajax.fail);
+                },
+                post: function (url, params, done) {
+                    $.post(url, params).done(done).fail(ajax.fail);
+                },
+                put: function (url, params, done) {
+                    $.put(url, params).done(done).fail(ajax.fail);
+                },
+                delete: function (url, params, done) {
+                    $.delete(url, params).done(done).fail(ajax.fail);
+                },
+                fail: function (err) {
+                    alert("Ocurrió un error al consultar el servidor");
+                    console.error(err);
+                }
+            }
+        })();
+
+        $(function () {
+            recetas.get();
+        });
+
+    </script>
+
+
+</body>
+</html>
