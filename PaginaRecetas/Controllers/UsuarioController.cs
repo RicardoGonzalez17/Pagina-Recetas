@@ -41,7 +41,7 @@ namespace PaginaRecetas.Controllers
         {
             using (DB_RecetasEntities baseDeDatos = new DB_RecetasEntities())
             {
-                return baseDeDatos.Recetas.ToList<Receta>();
+                return baseDeDatos.Recetas.ToList();
             }
         }
     }
