@@ -39,7 +39,6 @@ c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Owin.Security.OAuth.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Owin.Security.Twitter.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Web.Infrastructure.dll
-c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Newtonsoft.Json.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Owin.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\System.Web.Helpers.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\System.Web.Mvc.dll
