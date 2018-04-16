@@ -27,5 +27,11 @@ namespace PaginaRecetas.Models
     
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Receta> Recetas { get; set; }
+        public virtual DbSet<Ingrediente> Ingredientes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Tipos_Recetas> Tipos_Recetas { get; set; }
+        public virtual DbSet<Unidade> Unidades { get; set; }
+        public virtual DbSet<Ingrediente_Receta> Ingrediente_Receta { get; set; }
+        public virtual DbSet<tablaPrincipal> tablaPrincipals { get; set; }
     }
 }

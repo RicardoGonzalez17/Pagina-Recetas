@@ -20,6 +20,28 @@
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="Receta" EntitySet="Recetas" />
     </AssociationSet>
+    <EntitySet Name="Ingredientes" EntityType="DB_RecetasModel.Ingrediente" />
+    <EntitySet Name="sysdiagrams" EntityType="DB_RecetasModel.sysdiagram" />
+    <EntitySet Name="Tipos_Recetas" EntityType="DB_RecetasModel.Tipos_Recetas" />
+    <EntitySet Name="Unidades" EntityType="DB_RecetasModel.Unidade" />
+    <EntitySet Name="Ingrediente_Receta" EntityType="DB_RecetasModel.Ingrediente_Receta" />
+    <AssociationSet Name="FK__Recetas__ID_Tipo__2C3393D0" Association="DB_RecetasModel.FK__Recetas__ID_Tipo__2C3393D0">
+      <End Role="Tipos_Recetas" EntitySet="Tipos_Recetas" />
+      <End Role="Receta" EntitySet="Recetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__ID_In__2F10007B" Association="DB_RecetasModel.FK__Ingredien__ID_In__2F10007B">
+      <End Role="Ingrediente" EntitySet="Ingredientes" />
+      <End Role="Ingrediente_Receta" EntitySet="Ingrediente_Receta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__ID_Re__2D27B809" Association="DB_RecetasModel.FK__Ingredien__ID_Re__2D27B809">
+      <End Role="Receta" EntitySet="Recetas" />
+      <End Role="Ingrediente_Receta" EntitySet="Ingrediente_Receta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__ID_Un__2E1BDC42" Association="DB_RecetasModel.FK__Ingredien__ID_Un__2E1BDC42">
+      <End Role="Unidade" EntitySet="Unidades" />
+      <End Role="Ingrediente_Receta" EntitySet="Ingrediente_Receta" />
+    </AssociationSet>
+    <EntitySet Name="tablaPrincipals" EntityType="DB_RecetasModel.tablaPrincipal" />
   </EntityContainer>
   <EntityType Name="Receta">
     <Key>
@@ -36,6 +58,9 @@
     <Property Name="Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Usuario" Relationship="DB_RecetasModel.FK__Recetas__ID_Usua__22AA2996" FromRole="Receta" ToRole="Usuario" />
+    <Property Name="ID_TipoReceta" Type="Int32" />
+    <NavigationProperty Name="Tipos_Recetas" Relationship="DB_RecetasModel.FK__Recetas__ID_Tipo__2C3393D0" FromRole="Receta" ToRole="Tipos_Recetas" />
+    <NavigationProperty Name="Ingrediente_Receta" Relationship="DB_RecetasModel.FK__Ingredien__ID_Re__2D27B809" FromRole="Receta" ToRole="Ingrediente_Receta" />
   </EntityType>
   <Association Name="FK__Recetas__ID_Usua__22AA2996">
     <End Type="DB_RecetasModel.Usuario" Role="Usuario" Multiplicity="1" />
@@ -49,4 +74,125 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Ingrediente">
+    <Key>
+      <PropertyRef Name="ID_Ingrediente" />
+    </Key>
+    <Property Name="ID_Ingrediente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Ingrediente_Receta" Relationship="DB_RecetasModel.FK__Ingredien__ID_In__2F10007B" FromRole="Ingrediente" ToRole="Ingrediente_Receta" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipos_Recetas">
+    <Key>
+      <PropertyRef Name="ID_TipoReceta" />
+    </Key>
+    <Property Name="ID_TipoReceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo_Receta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Recetas" Relationship="DB_RecetasModel.FK__Recetas__ID_Tipo__2C3393D0" FromRole="Tipos_Recetas" ToRole="Receta" />
+  </EntityType>
+  <EntityType Name="Unidade">
+    <Key>
+      <PropertyRef Name="ID_Unidad" />
+    </Key>
+    <Property Name="ID_Unidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Ingrediente_Receta" Relationship="DB_RecetasModel.FK__Ingredien__ID_Un__2E1BDC42" FromRole="Unidade" ToRole="Ingrediente_Receta" />
+  </EntityType>
+  <EntityType Name="Ingrediente_Receta">
+    <Key>
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="ID_Receta" />
+      <PropertyRef Name="ID_Unidad" />
+      <PropertyRef Name="ID_Ingrediente" />
+    </Key>
+    <Property Name="Cantidad" Type="Double" Nullable="false" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="ID_Unidad" Type="Int32" Nullable="false" />
+    <Property Name="ID_Ingrediente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ingrediente" Relationship="DB_RecetasModel.FK__Ingredien__ID_In__2F10007B" FromRole="Ingrediente_Receta" ToRole="Ingrediente" />
+    <NavigationProperty Name="Receta" Relationship="DB_RecetasModel.FK__Ingredien__ID_Re__2D27B809" FromRole="Ingrediente_Receta" ToRole="Receta" />
+    <NavigationProperty Name="Unidade" Relationship="DB_RecetasModel.FK__Ingredien__ID_Un__2E1BDC42" FromRole="Ingrediente_Receta" ToRole="Unidade" />
+  </EntityType>
+  <Association Name="FK__Recetas__ID_Tipo__2C3393D0">
+    <End Type="DB_RecetasModel.Tipos_Recetas" Role="Tipos_Recetas" Multiplicity="0..1" />
+    <End Type="DB_RecetasModel.Receta" Role="Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos_Recetas">
+        <PropertyRef Name="ID_TipoReceta" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="ID_TipoReceta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__ID_In__2F10007B">
+    <End Type="DB_RecetasModel.Ingrediente" Role="Ingrediente" Multiplicity="1" />
+    <End Type="DB_RecetasModel.Ingrediente_Receta" Role="Ingrediente_Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingrediente">
+        <PropertyRef Name="ID_Ingrediente" />
+      </Principal>
+      <Dependent Role="Ingrediente_Receta">
+        <PropertyRef Name="ID_Ingrediente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__ID_Re__2D27B809">
+    <End Type="DB_RecetasModel.Receta" Role="Receta" Multiplicity="1" />
+    <End Type="DB_RecetasModel.Ingrediente_Receta" Role="Ingrediente_Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receta">
+        <PropertyRef Name="ID_Recetas" />
+      </Principal>
+      <Dependent Role="Ingrediente_Receta">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__ID_Un__2E1BDC42">
+    <End Type="DB_RecetasModel.Unidade" Role="Unidade" Multiplicity="1" />
+    <End Type="DB_RecetasModel.Ingrediente_Receta" Role="Ingrediente_Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unidade">
+        <PropertyRef Name="ID_Unidad" />
+      </Principal>
+      <Dependent Role="Ingrediente_Receta">
+        <PropertyRef Name="ID_Unidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tablaPrincipal">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Expr2" />
+      <PropertyRef Name="Tipo_Receta" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Apellidos" />
+      <PropertyRef Name="Fecha_Alta" />
+      <PropertyRef Name="Expr3" />
+    </Key>
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="ID_TipoReceta" Type="Int32" />
+    <Property Name="Expr2" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_Receta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_Alta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Expr3" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

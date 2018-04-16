@@ -12,29 +12,19 @@ namespace PaginaRecetas.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Receta
+    public partial class Tipos_Recetas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Receta()
+        public Tipos_Recetas()
         {
-            this.Ingrediente_Receta = new HashSet<Ingrediente_Receta>();
+            this.Recetas = new HashSet<Receta>();
         }
     
-        public int ID_Recetas { get; set; }
-        public string Nombre { get; set; }
-        public string Instrucciones { get; set; }
-        public Nullable<int> Nivel { get; set; }
+        public int ID_TipoReceta { get; set; }
+        public string Tipo_Receta { get; set; }
         public bool Activo { get; set; }
-        public System.DateTime Fecha_Alta { get; set; }
-        public Nullable<System.DateTime> Fecha_Baja { get; set; }
-        public string Imagen { get; set; }
-        public string Video { get; set; }
-        public int ID_Usuario { get; set; }
-        public Nullable<int> ID_TipoReceta { get; set; }
     
-        public virtual Usuario Usuario { get; set; }
-        public virtual Tipos_Recetas Tipos_Recetas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ingrediente_Receta> Ingrediente_Receta { get; set; }
+        public virtual ICollection<Receta> Recetas { get; set; }
     }
 }

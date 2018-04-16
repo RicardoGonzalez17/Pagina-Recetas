@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 
 namespace PaginaRecetas.Controllers
 {
@@ -46,7 +47,13 @@ namespace PaginaRecetas.Controllers
         private static string unidades = "[{\"PK_Unidad\":1, \"Unidad\":\"Gramos\"}, {\"PK_Unidad\":2, \"Unidad\":\"Kilogramos\"}, {\"PK_Unidad\":3, \"Unidad\":\"Cucharada\"}, {\"PK_Unidad\":4, \"Unidad\":\"Pieza\"}, {\"PK_Unidad\":5, \"Unidad\":\"Pisca\"} ]";
         private static string json = "[{\"PK_Receta\": 1, \"Receta\": \"Enchiladas\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Aarón Teposte\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":3 },{\"PK_Receta\": 2, \"Receta\": \"Pizza\", \"Categoria\":\"Italiana\", \"Usuario\":\"Ricardo Gonzalez\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":5 },{\"PK_Receta\": 3, \"Receta\": \"Hamburguesa\", \"Categoria\":\"Comida rápida\", \"Usuario\":\"Pedro López\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":4 },{\"PK_Receta\": 4, \"Receta\": \"Maruchan\", \"Categoria\":\"Comida rápida\", \"Usuario\":\"Lupita Huevona\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":1 },{\"PK_Receta\": 5, \"Receta\": \"Pollo en crema de chipotle\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Francisco Márquez\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":0 },{\"PK_Receta\": 6, \"Receta\": \"Quesadillas\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Ricardo Gonzalez\", \"Fecha\":\"2018-03-16 12:07:00\", \"Puntuacion\":5 } ]";
         public ActionResult Get() {
-            return Content(json, "application/json");
+            using (DB_RecetasEntities entity = new DB_RecetasEntities())
+            {
+                var obtenerInfo = entity
+                    .tablaPrincipals
+                    .Select(x => new {x.Expr3,x.Fecha_Alta, x.Nombre, x.Tipo_Receta,x.Expr2 });
+                return Content(JsonConvert.SerializeObject (obtenerInfo), "application/json");
+            };
         }
 
         public ActionResult GetbyId(int id) {
@@ -63,9 +70,28 @@ namespace PaginaRecetas.Controllers
         {
             return Content(unidades, "application/json");
         }
-
-        public bool Add(string Receta, string Categoria, int Puntuacion)
+        [WebMethod]
+        public bool Add(string nombre, string instrucciones, int id_tiporeceta)
         {
+            using (DB_RecetasEntities entity = new DB_RecetasEntities())
+            {
+                var agregarReceta =
+                    entity
+                    .Recetas
+                    .Add(new Receta
+                    {
+                        Nombre = nombre,
+                        Instrucciones = instrucciones,
+                        Nivel = 1,
+                        Activo = true,
+                        Fecha_Alta = DateTime.Now,
+                        Imagen = null,
+                        Video = null,
+                        ID_Usuario = 1,
+                        ID_TipoReceta = id_tiporeceta
+                    });
+                entity.SaveChanges();
+            }
             return true;
         }
 

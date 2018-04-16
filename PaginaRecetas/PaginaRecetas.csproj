@@ -218,7 +218,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBRecetasModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ingrediente.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ingrediente_Receta.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Receta.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tablaPrincipal.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipos_Recetas.cs">
+      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Unidade.cs">
       <DependentUpon>DBRecetasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
