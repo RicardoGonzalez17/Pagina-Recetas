@@ -61,7 +61,19 @@
     <Property Name="imagen" Type="varbinary(max)" />
     <Property Name="NumeroRecetas" Type="int" />
   </EntityType>
-  <Association Name="FK__COMENTARI__ID_Re__276EDEB3">
+  <Association Name="FK__COMENTARI__ID_Re__1A14E395">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="COMENTARIOS" Type="Self.COMENTARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="COMENTARIOS">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMENTARI__ID_Re__25869641">
     <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
     <End Role="COMENTARIOS" Type="Self.COMENTARIOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -85,7 +97,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__INGREDIEN__ID_Re__29572725">
+  <Association Name="FK__INGREDIEN__ID_Re__1BFD2C07">
     <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
     <End Role="INGREDIENTES" Type="Self.INGREDIENTES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -97,7 +109,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MULTIMEDI__ID_Re__267ABA7A">
+  <Association Name="FK__INGREDIEN__ID_Re__267ABA7A">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="INGREDIENTES" Type="Self.INGREDIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="INGREDIENTES">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MULTIMEDI__ID_Re__1CF15040">
     <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
     <End Role="MULTIMEDIA" Type="Self.MULTIMEDIA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -109,7 +133,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RECETAS__ID_Cate__25869641">
+  <Association Name="FK__MULTIMEDI__ID_Re__276EDEB3">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="MULTIMEDIA" Type="Self.MULTIMEDIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="MULTIMEDIA">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RECETAS__ID_Cate__1DE57479">
+    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIAS">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="RECETAS">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RECETAS__ID_Cate__286302EC">
     <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
     <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -140,7 +188,11 @@
     <EntitySet Name="MULTIMEDIA" EntityType="Self.MULTIMEDIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RECETAS" EntityType="Self.RECETAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__COMENTARI__ID_Re__276EDEB3" Association="Self.FK__COMENTARI__ID_Re__276EDEB3">
+    <AssociationSet Name="FK__COMENTARI__ID_Re__1A14E395" Association="Self.FK__COMENTARI__ID_Re__1A14E395">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="COMENTARIOS" EntitySet="COMENTARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMENTARI__ID_Re__25869641" Association="Self.FK__COMENTARI__ID_Re__25869641">
       <End Role="RECETAS" EntitySet="RECETAS" />
       <End Role="COMENTARIOS" EntitySet="COMENTARIOS" />
     </AssociationSet>
@@ -148,15 +200,27 @@
       <End Role="USUARIOS" EntitySet="USUARIOS" />
       <End Role="COMENTARIOS" EntitySet="COMENTARIOS" />
     </AssociationSet>
-    <AssociationSet Name="FK__INGREDIEN__ID_Re__29572725" Association="Self.FK__INGREDIEN__ID_Re__29572725">
+    <AssociationSet Name="FK__INGREDIEN__ID_Re__1BFD2C07" Association="Self.FK__INGREDIEN__ID_Re__1BFD2C07">
       <End Role="RECETAS" EntitySet="RECETAS" />
       <End Role="INGREDIENTES" EntitySet="INGREDIENTES" />
     </AssociationSet>
-    <AssociationSet Name="FK__MULTIMEDI__ID_Re__267ABA7A" Association="Self.FK__MULTIMEDI__ID_Re__267ABA7A">
+    <AssociationSet Name="FK__INGREDIEN__ID_Re__267ABA7A" Association="Self.FK__INGREDIEN__ID_Re__267ABA7A">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="INGREDIENTES" EntitySet="INGREDIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MULTIMEDI__ID_Re__1CF15040" Association="Self.FK__MULTIMEDI__ID_Re__1CF15040">
       <End Role="RECETAS" EntitySet="RECETAS" />
       <End Role="MULTIMEDIA" EntitySet="MULTIMEDIA" />
     </AssociationSet>
-    <AssociationSet Name="FK__RECETAS__ID_Cate__25869641" Association="Self.FK__RECETAS__ID_Cate__25869641">
+    <AssociationSet Name="FK__MULTIMEDI__ID_Re__276EDEB3" Association="Self.FK__MULTIMEDI__ID_Re__276EDEB3">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="MULTIMEDIA" EntitySet="MULTIMEDIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RECETAS__ID_Cate__1DE57479" Association="Self.FK__RECETAS__ID_Cate__1DE57479">
+      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+      <End Role="RECETAS" EntitySet="RECETAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RECETAS__ID_Cate__286302EC" Association="Self.FK__RECETAS__ID_Cate__286302EC">
       <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
       <End Role="RECETAS" EntitySet="RECETAS" />
     </AssociationSet>

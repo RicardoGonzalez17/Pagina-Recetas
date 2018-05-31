@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -33,6 +33,31 @@
         color:black;
         font-style:italic
         }
+
+        .column {
+            float: left;
+            padding: 10px;
+        }
+
+        .left, .right {
+            width: 15%;
+            height: 100vh;
+            background: url("../../ImagesUsuarios/fondo4.jpg")
+        }
+
+        .middle {
+            width: 70%;
+        }
+
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        html, body {
+            height: 100%;
+        }
     </style>
     <script type="text/javascript">
         var idRecetaDetalle = null;
@@ -42,17 +67,19 @@
         var entroUsuariosRecetas = false;
     </script>
 </head>
-<body class="container" background="../ImagesUsuarios/fondo4.jpg">
+<body @*class="container"*@ >
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" style="max-width: 4000px;height: 50px !important;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a target="_blank" href="#" class="navbar-brand">Recetas mágicas</a>
+                <a target="_blank" href="#" class="navbar-brand">
+                <img src="~/ImagesUsuarios/recetas.png" width="50" height="50"/>
+                    Recetas mágicas</a>
             </div>
             <div class="collapse navbar-collapse">
                 @if (Session["ID_Usuario"] != null)
@@ -65,13 +92,13 @@
                             <strong>@Session["Nombre"].ToString()</strong>
                             <span class="fa fa-caret-down"></span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="width: 290px;height: 160px;">
                             <li>
                                 <div class="navbar-login">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <p class="text-center">
-                                                <span class="fa fa-user"></span>
+                                                <span class="fa fa-user fa-6x" style="margin-left: 10px;"></span>
                                             </p>
                                         </div>
                                         <div class="col-lg-8">
@@ -113,39 +140,41 @@
 
     <div class="block-flat">
         <div class="header col-md-12 row" style="margin-right: 0px;">
-            <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <h3>Recetas</h3>
             </div>
         </div>
-        <div>
-        @if (Session["ID_Usuario"] != null)
-        {
-            <button class="btn btn-primary" type="button" onclick="recetas.new()"><i class="fa fa-plus"></i> Agregar receta</button>
-        }
+        <div class="row">
+            <div class="column left"></div>
+            <div class="column middle">
 
-            <div style="margin-top: 30px;">
-                <div class="form-group text-right">
-                    <label>Ver solo:</label>
-                    <select class="form-control" name="ver" size="1" onchange="infoTabla(this)">
-                        <option value="recetas">Recetas</option>
-                        <option value="usuarios">Usuarios</option>
-                    </select>
+                @if (Session["ID_Usuario"] != null)
+                {
+                    <button class="btn btn-primary" type="button" onclick="recetas.new()"><i class="fa fa-plus"></i> Agregar receta</button>
+                }
+                <div style="margin-top: 30px;">
+                    <div class="form-group text-right">
+                        <label>Ver solo:</label>
+                        <select class="form-control" name="ver" size="1" onchange="infoTabla(this)">
+                            <option value="recetas">Recetas</option>
+                            <option value="usuarios">Usuarios</option>
+                        </select>
+                    </div>
+                    <table class="table table-striped letrareceta2" style="display:none;" id="tbl_Recetas">
+                        <thead>
+                            <tr id="tablaColumnas"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <table class="table table-striped letrareceta2" style="display:none;" id="tbl_usuarios">
+                        <thead>
+                            <tr id="tablaColumna_usuarios"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
-                <table class="table table-striped letrareceta2" style="display:none;" id="tbl_Recetas">
-                    <thead>
-                        <tr id="tablaColumnas">
-                            
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <table class="table table-striped letrareceta2" style="display:none;" id="tbl_usuarios">
-                    <thead>
-                        <tr id="tablaColumna_usuarios"></tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
             </div>
+            <div class="column right"></div>
         </div>
     </div>
 
@@ -253,7 +282,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button" tabindex="-1">×</button>
-                    <h4 class="modal-title" id="mod_receta"></h4>
+                    <h4 class="modal-title" id="mod_receta">Nueva receta</h4>
                 </div>
                 <form action="#" id="form_receta">
                     <div class="modal-body">
@@ -311,7 +340,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button" tabindex="-1">×</button>
-                    <h4 class="modal-title" id="mod_usuario"></h4>
+                    <h3 class="modal-title" id="mod_usuario">Registro</h3>
                 </div>
                 <form action="#" id="form_usuario">
                     <div class="modal-body">
@@ -321,8 +350,9 @@
                         </div>
                         <div class="form-group">
                             <label for="txt_usuario_imagen">Imagen</label>
-                           <input type="file" id="imagenusuario" name="imagenusuario" onchange="nombre(this.value)" accept="image/png, .jpeg, .jpg, image/gif">
-                           <input type="text" id="exp-img-btn"height="5" width="5" name="exp-img-btn" />
+                            @*<button class="btn btn-md form-control btn-primary" onclick="$('#imagenusuario').click()">Click aquí para elegir imagen</button>*@
+                           <input type="file" class="btn btn-md form-control btn-primary" id="imagenusuario" name="imagenusuario" onchange="nombre(this.value)" accept="image/png, .jpeg, .jpg, image/gif">
+                           @*<input type="text" id="exp-img-btn"height="5" width="5" name="exp-img-btn" />*@
                         </div>
                         <div class="form-group">
                             <label for="txt_usuario_corre">Correo</label>
@@ -387,7 +417,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button" tabindex="-1">×</button>
-                    <h4 class="modal-title" id="mod_usuariosesion"></h4>
+                    <h3 class="modal-title" id="mod_usuariosesion">¡Bienvenido de nuevo!</h3>
                 </div>
                 <form action="#" id="form_usuariosesion">
                     <div class="modal-body">
@@ -618,7 +648,8 @@
                     });
                 },
                 login: function () {
-                    ajax.post("/Usuario/Login", { correo: $("#txt_usuario_correosesion").val(), contrasenia: $("#txt_usuario_passwordsesion").val() }, function (data) {
+                    $.post("/Usuario/Login", { correo: $("#txt_usuario_correosesion").val(), contrasenia: $("#txt_usuario_passwordsesion").val() })
+                        .done(function (data) {
                         if (data == "True") {
                             $("#mod_usuariosesion").modal('hide');
                             location.reload(true);

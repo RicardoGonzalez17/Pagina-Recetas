@@ -225,6 +225,7 @@
     <Compile Include="Models\COMENTARIOS.cs">
       <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConnectionString.cs" />
     <Compile Include="Models\INGREDIENTES.cs">
       <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
@@ -630,6 +631,7 @@
     <Content Include="ImagesUsuarios\pasta.jpg" />
     <Content Include="ImagesUsuarios\pizza.jpg" />
     <Content Include="ImagesUsuarios\pudin.jpg" />
+    <Content Include="ImagesUsuarios\recetas.png" />
     <Content Include="ImagesUsuarios\usuario-masculino-foto-de-perfil_318-37825.jpg" />
     <Content Include="Models\BDPaginaRecetasModelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -15,7 +15,7 @@ namespace PaginaRecetas.Controllers
     public class UsuarioController : Controller
     {
         
-        private BD_PaginaRecetasEntities2 dbDeRecetas = new BD_PaginaRecetasEntities2();
+        private BD_PaginaRecetasEntities2 dbDeRecetas = new BD_PaginaRecetasEntities2(ConnectionString.Value);
         // GET: Usuario
         public ActionResult Index()
         {
@@ -23,7 +23,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult GetAll()
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var todos = entity
                     .USUARIOS
@@ -34,7 +34,7 @@ namespace PaginaRecetas.Controllers
         public ActionResult Get()
         {
             var idusuario = Convert.ToUInt32(Session["ID_Usuario"]);
-            using (var entity = new BD_PaginaRecetasEntities2())
+            using (var entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var usuariofull = entity
                     .USUARIOS
@@ -46,7 +46,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult GeyIdUsuario(int idusuario)
         {
-            using (var entity = new BD_PaginaRecetasEntities2())
+            using (var entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var usuario = entity
                     .USUARIOS
@@ -60,7 +60,7 @@ namespace PaginaRecetas.Controllers
 
         public bool ActualizarUsuario(string nombre, string correo, string contrasenia, string imagen )
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var idusuario = Convert.ToUInt32(Session["ID_Usuario"]);
                 if (!contrasenia.Equals("") && !correo.Equals("") && !nombre.Equals(""))
@@ -86,7 +86,7 @@ namespace PaginaRecetas.Controllers
         }
 
         public bool Login(string correo, string contrasenia) {
-            using (var entity = new BD_PaginaRecetasEntities2())
+            using (var entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var usuario =
                 entity
@@ -108,16 +108,19 @@ namespace PaginaRecetas.Controllers
         }
         public static byte[] ImageToBinary(string _path)
         {
-            FileStream fS = new FileStream(_path, FileMode.Open, FileAccess.Read);
-            byte[] b = new byte[fS.Length];
-            fS.Read(b, 0, (int)fS.Length);
-            fS.Close();
-            return b;
+            if (!string.IsNullOrEmpty(_path))
+            {
+                FileStream fS = new FileStream(_path, FileMode.Open, FileAccess.Read);
+                byte[] b = new byte[fS.Length];
+                fS.Read(b, 0, (int)fS.Length);
+                fS.Close();
+                return b;
+            } return null;
         }
 
         public bool Add(string nombre, string correo, string contrasenia, string imagen)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 entity
                 .USUARIOS
@@ -127,7 +130,7 @@ namespace PaginaRecetas.Controllers
                     Correo = correo,
                     Contrasenia = contrasenia,
                     Nivel = 1,
-                    imagen = ImageToBinary("C:\\Users\\ricar\\Pictures\\Imagenes Usuarios\\" + imagen)
+                    imagen = ImageToBinary(string.IsNullOrEmpty(imagen)?string.Empty:"C:\\Users\\ricar\\Pictures\\Imagenes Usuarios\\" + imagen)
                     });
                 entity.SaveChanges();
             }
@@ -156,7 +159,7 @@ namespace PaginaRecetas.Controllers
 
         IEnumerable<RECETAS> ObtenerRecetas()
         {
-            using (BD_PaginaRecetasEntities2 baseDeDatos = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 baseDeDatos = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 return baseDeDatos.RECETAS.ToList();
             }

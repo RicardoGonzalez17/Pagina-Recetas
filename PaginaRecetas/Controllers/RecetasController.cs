@@ -13,7 +13,7 @@ namespace PaginaRecetas.Controllers
     public class RecetasController : Controller
     {
         UsuarioController controladorUsuarios;
-        BD_PaginaRecetasEntities2 dbDeRecetas = new BD_PaginaRecetasEntities2();
+        //BD_PaginaRecetasEntities2 dbDeRecetas = new BD_PaginaRecetasEntities2();
         // GET: Recetas
         public ActionResult Index()
         {
@@ -49,7 +49,7 @@ namespace PaginaRecetas.Controllers
         //private static string unidades = "[{\"PK_Unidad\":1, \"Unidad\":\"Gramos\"}, {\"PK_Unidad\":2, \"Unidad\":\"Kilogramos\"}, {\"PK_Unidad\":3, \"Unidad\":\"Cucharada\"}, {\"PK_Unidad\":4, \"Unidad\":\"Pieza\"}, {\"PK_Unidad\":5, \"Unidad\":\"Pisca\"} ]";
         private static string json = "[{\"ID_Receta\": 1, \"Nombre\": \"Enchiladas\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Aarón Teposte\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":3 },{\"ID_Receta\": 2, \"Nombre\": \"Pizza\", \"Categoria\":\"Italiana\", \"Usuario\":\"Ricardo Gonzalez\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":5 },{\"ID_Receta\": 3, \"Nombre\": \"Hamburguesa\", \"Categoria\":\"Comida rápida\", \"Usuario\":\"Pedro López\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":4 },{\"ID_Receta\": 4, \"Nombre\": \"Maruchan\", \"Categoria\":\"Comida rápida\", \"Usuario\":\"Lupita Huevona\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":1 },{\"ID_Receta\": 5, \"Nombre\": \"Pollo en crema de chipotle\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Francisco Márquez\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":0 },{\"ID_Receta\": 6, \"Nombre\": \"Quesadillas\", \"Categoria\":\"Mexicana\", \"Usuario\":\"Ricardo Gonzalez\", \"Fecha_Alta\":\"2018-03-16 12:07:00\", \"Puntuacion\":5 } ]";
         public ActionResult Get() {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .RECETAS
@@ -60,7 +60,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult GetByIdUsuario(int idusuario)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var recetas = entity
                     .RECETAS
@@ -88,7 +88,7 @@ namespace PaginaRecetas.Controllers
 
         public ActionResult Categorias()
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .CATEGORIAS
@@ -99,7 +99,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult SumarORestar(string operacion, int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2()) {
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value)) {
                 if (operacion.Equals("Sumar"))
                 {
                     var sumarORestar = entity
@@ -127,7 +127,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult GetbyId(int id)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .RECETAS
@@ -139,7 +139,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult GetUsuariobyID(int idusuario)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .USUARIOS
@@ -151,7 +151,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult CategoriasbyID(int idcategoria)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .CATEGORIAS
@@ -164,7 +164,7 @@ namespace PaginaRecetas.Controllers
 
         public ActionResult CategoriasGetID(string categoria)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .CATEGORIAS
@@ -177,7 +177,7 @@ namespace PaginaRecetas.Controllers
         [SessionTimeOut]
         public bool AddIngrediente(int id_receta, string ingrediente)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfor = entity
                     .INGREDIENTES
@@ -195,7 +195,7 @@ namespace PaginaRecetas.Controllers
         [SessionTimeOut]
         public int Add(string nombre, string descripcion, int id_categoria, string ingredientes, string imagen, string video)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var fecha = DateTime.Now;
                 fecha.ToString("dd/MM/yyyy  hh:mm");
@@ -226,7 +226,7 @@ namespace PaginaRecetas.Controllers
         }
         public bool SumarCantidadReceta (int idusuario)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var sumar = entity
                     .USUARIOS
@@ -244,7 +244,7 @@ namespace PaginaRecetas.Controllers
         }
         public void InsertarMultimedia(string imagen, string video, int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 if (imagen !=null && video != null)
                 {
@@ -299,7 +299,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult traerImagenes(int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var todaslasImagenes = entity
                     .MULTIMEDIA
@@ -311,7 +311,7 @@ namespace PaginaRecetas.Controllers
         }
         public String traerVideo(int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 try
                 {
@@ -331,7 +331,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult IngredientesGetbyIDReceta(int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .INGREDIENTES
@@ -342,7 +342,7 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult IngredientesGetByID(int id_ingrediente)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var obtenerInfo = entity
                     .INGREDIENTES
@@ -360,7 +360,7 @@ namespace PaginaRecetas.Controllers
 
         public ActionResult GetComentariosByIdReceta(int idreceta)
         {
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var comentarios = entity
                 .COMENTARIOS
@@ -372,7 +372,7 @@ namespace PaginaRecetas.Controllers
         public bool GuardarComentario(int idreceta, string idusuario, string comentario)
         {
             var hoy = DateTime.Now;
-            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2(ConnectionString.Value))
             {
                 var comentarioNuevo = entity
                     .COMENTARIOS
