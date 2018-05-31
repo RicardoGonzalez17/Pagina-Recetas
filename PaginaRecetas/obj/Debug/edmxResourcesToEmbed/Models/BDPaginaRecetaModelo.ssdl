@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_PaginaRecetasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIAS">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMENTARIOS">
+    <Key>
+      <PropertyRef Name="ID_Comentario" />
+    </Key>
+    <Property Name="ID_Comentario" Type="int" Nullable="false" />
+    <Property Name="ID_Receta" Type="int" Nullable="false" />
+    <Property Name="ID_Usuario" Type="int" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INGREDIENTES">
+    <Key>
+      <PropertyRef Name="ID_Ingrediente" />
+    </Key>
+    <Property Name="ID_Ingrediente" Type="int" Nullable="false" />
+    <Property Name="ID_Receta" Type="int" Nullable="false" />
+    <Property Name="Ingrediente" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MULTIMEDIA">
+    <Key>
+      <PropertyRef Name="ID_Multimedia" />
+    </Key>
+    <Property Name="ID_Multimedia" Type="int" Nullable="false" />
+    <Property Name="ID_Receta" Type="int" Nullable="false" />
+    <Property Name="Liga" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RECETAS">
+    <Key>
+      <PropertyRef Name="ID_Receta" />
+    </Key>
+    <Property Name="ID_Receta" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ID_Ingrediente" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_alta" Type="datetime" Nullable="false" />
+    <Property Name="Puntuacion" Type="bigint" Nullable="false" />
+    <Property Name="ID_Categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nivel" Type="int" Nullable="false" />
+    <Property Name="Contrasenia" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BD_PaginaRecetasModelStoreContainer">
+    <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMENTARIOS" EntityType="Self.COMENTARIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INGREDIENTES" EntityType="Self.INGREDIENTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MULTIMEDIA" EntityType="Self.MULTIMEDIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RECETAS" EntityType="Self.RECETAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -39,7 +39,6 @@ c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Owin.Security.OAuth.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Owin.Security.Twitter.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Microsoft.Web.Infrastructure.dll
-c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Newtonsoft.Json.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\Owin.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\System.Web.Helpers.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\System.Web.Mvc.dll
@@ -99,3 +98,105 @@ c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\obj\Debug\PaginaRecetas.dll
 c:\users\ricar\documents\visual studio 2015\Projects\PaginaRecetas\PaginaRecetas\obj\Debug\PaginaRecetas.pdb
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\ApplicationInsights.config
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\csc.exe
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\vbc.exe
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\VBCSCompiler.exe
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\PaginaRecetas.dll.config
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\PaginaRecetas.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\PaginaRecetas.pdb
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Antlr3.Runtime.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\EntityFramework.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\EntityFramework.SqlServer.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.Web.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Newtonsoft.Json.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Owin.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Helpers.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Mvc.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Optimization.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Razor.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.Razor.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\WebGrease.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.Web.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Helpers.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Mvc.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Optimization.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.Razor.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\System.Web.WebPages.Razor.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Antlr3.Runtime.pdb
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Newtonsoft.Json.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\EntityFramework.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\EntityFramework.SqlServer.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.Razor.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\EntityFramework.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\obj\Debug\PaginaRecetas.csprojResolveAssemblyReference.cache
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\obj\Debug\PaginaRecetas.csproj.CoreCompileInputs.cache
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\obj\Debug\PaginaRecetas.dll
+C:\Users\Aaron Teposte\Documents\Visual Studio 2017\Projects\Pagina-Recetas\PaginaRecetas\obj\Debug\PaginaRecetas.pdb

@@ -9,5 +9,7 @@ namespace PaginaRecetas
         {
             filters.Add(new HandleErrorAttribute());
         }
+
+
     }
 }

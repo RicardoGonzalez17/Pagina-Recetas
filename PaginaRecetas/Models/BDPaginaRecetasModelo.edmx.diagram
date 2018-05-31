@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ff63667c2ec4ec4b9e3ed6fbc76230c" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.CATEGORIAS" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.COMENTARIOS" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.INGREDIENTES" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.MULTIMEDIA" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.RECETAS" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_PaginaRecetasModel.USUARIOS" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__RECETAS__ID_Cate__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__COMENTARI__ID_Re__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__COMENTARI__ID_Us__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__INGREDIEN__ID_Re__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__MULTIMEDI__ID_Re__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_PaginaRecetasModel.FK__RECETAS__ID_Usua__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -17,6 +17,7 @@
     <EntitySetMapping Name="Recetas">
       <EntityTypeMapping TypeName="DB_RecetasModel.Receta">
         <MappingFragment StoreEntitySet="Recetas">
+          <ScalarProperty Name="ID_TipoReceta" ColumnName="ID_TipoReceta" />
           <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
           <ScalarProperty Name="Video" ColumnName="Video" />
           <ScalarProperty Name="Imagen" ColumnName="Imagen" />
@@ -27,6 +28,69 @@
           <ScalarProperty Name="Instrucciones" ColumnName="Instrucciones" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="ID_Recetas" ColumnName="ID_Recetas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredientes">
+      <EntityTypeMapping TypeName="DB_RecetasModel.Ingrediente">
+        <MappingFragment StoreEntitySet="Ingredientes">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_Ingrediente" ColumnName="ID_Ingrediente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB_RecetasModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipos_Recetas">
+      <EntityTypeMapping TypeName="DB_RecetasModel.Tipos_Recetas">
+        <MappingFragment StoreEntitySet="Tipos_Recetas">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Tipo_Receta" ColumnName="Tipo_Receta" />
+          <ScalarProperty Name="ID_TipoReceta" ColumnName="ID_TipoReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidades">
+      <EntityTypeMapping TypeName="DB_RecetasModel.Unidade">
+        <MappingFragment StoreEntitySet="Unidades">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_Unidad" ColumnName="ID_Unidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingrediente_Receta">
+      <EntityTypeMapping TypeName="DB_RecetasModel.Ingrediente_Receta">
+        <MappingFragment StoreEntitySet="Ingrediente_Receta">
+          <ScalarProperty Name="ID_Ingrediente" ColumnName="ID_Ingrediente" />
+          <ScalarProperty Name="ID_Unidad" ColumnName="ID_Unidad" />
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablaPrincipals">
+      <EntityTypeMapping TypeName="DB_RecetasModel.tablaPrincipal">
+        <MappingFragment StoreEntitySet="tablaPrincipal">
+          <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+          <ScalarProperty Name="Fecha_Alta" ColumnName="Fecha_Alta" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo_Receta" ColumnName="Tipo_Receta" />
+          <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+          <ScalarProperty Name="ID_TipoReceta" ColumnName="ID_TipoReceta" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
