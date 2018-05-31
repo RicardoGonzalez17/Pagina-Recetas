@@ -12,15 +12,15 @@ namespace PaginaRecetas.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Ingrediente_Receta
+    public partial class COMENTARIOS
     {
-        public double Cantidad { get; set; }
+        public int ID_Comentario { get; set; }
         public int ID_Receta { get; set; }
-        public int ID_Unidad { get; set; }
-        public int ID_Ingrediente { get; set; }
+        public int ID_Usuario { get; set; }
+        public string Comentario { get; set; }
+        public System.DateTime Fecha { get; set; }
     
-        public virtual Ingrediente Ingrediente { get; set; }
-        public virtual Receta Receta { get; set; }
-        public virtual Unidade Unidade { get; set; }
+        public virtual RECETAS RECETAS { get; set; }
+        public virtual USUARIOS USUARIOS { get; set; }
     }
 }

@@ -1,34 +1,133 @@
-﻿using PaginaRecetas.Models;
+﻿using Newtonsoft.Json;
+using PaginaRecetas.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
 
 namespace PaginaRecetas.Controllers
 {
     public class UsuarioController : Controller
     {
-        private DB_RecetasEntities dbDeRecetas = new DB_RecetasEntities();
+        
+        private BD_PaginaRecetasEntities2 dbDeRecetas = new BD_PaginaRecetasEntities2();
         // GET: Usuario
         public ActionResult Index()
         {
             return View();
         }
-        public bool Add(string nombre, string apellidos, string correo, string contrasenia)
+        public ActionResult GetAll()
         {
-            using (DB_RecetasEntities entity = new DB_RecetasEntities())
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
             {
-                    entity
-                    .Usuarios
-                    .Add(new Usuario
-                    {
-                        Nombre = nombre,
-                        Apellidos = apellidos,
-                        Correo = correo,
-                        Contrasenia = contrasenia,
-                        Activo = true,
-                        Nivel = 1
+                var todos = entity
+                    .USUARIOS
+                    .Select(x => new {x.ID_Usuario,x.imagen,x.Nivel,x.Nombre,x.Correo });
+                return Content(JsonConvert.SerializeObject(todos), "application/json");
+            }
+        }
+        public ActionResult Get()
+        {
+            var idusuario = Convert.ToUInt32(Session["ID_Usuario"]);
+            using (var entity = new BD_PaginaRecetasEntities2())
+            {
+                var usuariofull = entity
+                    .USUARIOS
+                    .Where(x => x.ID_Usuario == idusuario)
+                    .Select(x => new { x.Nombre,x.Nivel, x.Contrasenia, x.Correo, x.imagen})
+                    .FirstOrDefault();
+                return Content(JsonConvert.SerializeObject(usuariofull), "application/json");
+            }
+        }
+        public ActionResult GeyIdUsuario(int idusuario)
+        {
+            using (var entity = new BD_PaginaRecetasEntities2())
+            {
+                var usuario = entity
+                    .USUARIOS
+                    .Where(x => x.ID_Usuario == idusuario)
+                    .Select(x => new { x.ID_Usuario, x.imagen, x.Nivel, x.Nombre, x.Correo })
+                    .FirstOrDefault();
+                return Content(JsonConvert.SerializeObject(usuario), "application / json");
+                //var prueba = JsonConvert.DeserializeObject<Usuario>(json);
+            }
+        }
+
+        public bool ActualizarUsuario(string nombre, string correo, string contrasenia, string imagen )
+        {
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            {
+                var idusuario = Convert.ToUInt32(Session["ID_Usuario"]);
+                if (!contrasenia.Equals("") && !correo.Equals("") && !nombre.Equals(""))
+                {
+                    var nuevosDatos = entity
+                        .USUARIOS
+                        .Where(x => x.ID_Usuario == idusuario)
+                        .Select(x => x)
+                        .FirstOrDefault();
+                    nuevosDatos.Nombre = nombre;
+                    nuevosDatos.Correo = correo;
+                    nuevosDatos.Contrasenia = contrasenia;
+                    // QUEDA PENDIENTE LA IMAGEN 
+                    entity.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
+        public bool Login(string correo, string contrasenia) {
+            using (var entity = new BD_PaginaRecetasEntities2())
+            {
+                var usuario =
+                entity
+                .USUARIOS
+                .FirstOrDefault(x => x.Correo == correo && x.Contrasenia == contrasenia);
+                if(usuario != null)
+                {
+                    Session["ID_Usuario"] = usuario.ID_Usuario;
+                    Session["Nombre"] = usuario.Nombre;
+                    Session["Correo"] = usuario.Correo;
+                }
+                return usuario != null;
+            }
+        }
+
+        public bool Logout() {
+            Session.Clear();
+            return true;
+        }
+        public static byte[] ImageToBinary(string _path)
+        {
+            FileStream fS = new FileStream(_path, FileMode.Open, FileAccess.Read);
+            byte[] b = new byte[fS.Length];
+            fS.Read(b, 0, (int)fS.Length);
+            fS.Close();
+            return b;
+        }
+
+        public bool Add(string nombre, string correo, string contrasenia, string imagen)
+        {
+            using (BD_PaginaRecetasEntities2 entity = new BD_PaginaRecetasEntities2())
+            {
+                entity
+                .USUARIOS
+                .Add(new USUARIOS
+                {
+                    Nombre = nombre,
+                    Correo = correo,
+                    Contrasenia = contrasenia,
+                    Nivel = 1,
+                    imagen = ImageToBinary("C:\\Users\\ricar\\Pictures\\Imagenes Usuarios\\" + imagen)
                     });
                 entity.SaveChanges();
             }
@@ -36,15 +135,15 @@ namespace PaginaRecetas.Controllers
         }
         public ActionResult AgregaroEditar(int d=0)
         {
-            Usuario elUsuario = new Usuario();
+            USUARIOS elUsuario = new USUARIOS();
             return View(elUsuario);
         }
         [HttpPost]
-        public ActionResult AgregaroEditar([Bind(Include = "Nombre,Apellidos,Correo,Contrasenia")]Usuario usuarioNuevo)
+        public ActionResult AgregaroEditar([Bind(Include = "Nombre,Correo,Contrasenia")]USUARIOS usuarioNuevo)
         {
             if (ModelState.IsValid)
             {
-                dbDeRecetas.Usuarios.Add(usuarioNuevo);
+                dbDeRecetas.USUARIOS.Add(usuarioNuevo);
                 dbDeRecetas.SaveChanges();
             }
             return RedirectToAction("AgregaroEditar");
@@ -55,12 +154,18 @@ namespace PaginaRecetas.Controllers
             return View(ObtenerRecetas());
         }
 
-        IEnumerable<Receta> ObtenerRecetas()
+        IEnumerable<RECETAS> ObtenerRecetas()
         {
-            using (DB_RecetasEntities baseDeDatos = new DB_RecetasEntities())
+            using (BD_PaginaRecetasEntities2 baseDeDatos = new BD_PaginaRecetasEntities2())
             {
-                return baseDeDatos.Recetas.ToList();
+                return baseDeDatos.RECETAS.ToList();
             }
         }
+        public class Usuario
+        {
+            public String Nombre { get; set; }
+
+        }
+
     }
 }

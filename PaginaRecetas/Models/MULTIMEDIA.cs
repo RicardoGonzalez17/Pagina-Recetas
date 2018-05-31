@@ -12,16 +12,14 @@ namespace PaginaRecetas.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tablaPrincipal
+    public partial class MULTIMEDIA
     {
-        public int ID_Usuario { get; set; }
-        public int Expr1 { get; set; }
-        public Nullable<int> ID_TipoReceta { get; set; }
-        public int Expr2 { get; set; }
-        public string Tipo_Receta { get; set; }
-        public string Nombre { get; set; }
-        public string Apellidos { get; set; }
-        public System.DateTime Fecha_Alta { get; set; }
-        public string Expr3 { get; set; }
+        public int ID_Multimedia { get; set; }
+        public int ID_Receta { get; set; }
+        public string Liga { get; set; }
+        public Nullable<bool> Imagen { get; set; }
+        public Nullable<bool> Video { get; set; }
+    
+        public virtual RECETAS RECETAS { get; set; }
     }
 }

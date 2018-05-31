@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_PaginaRecetasModelStoreContainer" CdmEntityContainer="BD_PaginaRecetasEntities2">
+    <EntitySetMapping Name="CATEGORIAS">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.CATEGORIAS">
+        <MappingFragment StoreEntitySet="CATEGORIAS">
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMENTARIOS">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.COMENTARIOS">
+        <MappingFragment StoreEntitySet="COMENTARIOS">
+          <ScalarProperty Name="ID_Comentario" ColumnName="ID_Comentario" />
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INGREDIENTES">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.INGREDIENTES">
+        <MappingFragment StoreEntitySet="INGREDIENTES">
+          <ScalarProperty Name="ID_Ingrediente" ColumnName="ID_Ingrediente" />
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="Ingrediente" ColumnName="Ingrediente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MULTIMEDIA">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.MULTIMEDIA">
+        <MappingFragment StoreEntitySet="MULTIMEDIA">
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="ID_Multimedia" ColumnName="ID_Multimedia" />
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="Liga" ColumnName="Liga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECETAS">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.RECETAS">
+        <MappingFragment StoreEntitySet="RECETAS">
+          <ScalarProperty Name="Dislikes" ColumnName="Dislikes" />
+          <ScalarProperty Name="Likes" ColumnName="Likes" />
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha_Alta" ColumnName="Fecha_Alta" />
+          <ScalarProperty Name="Puntuacion" ColumnName="Puntuacion" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="BD_PaginaRecetasModel.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="NumeroRecetas" ColumnName="NumeroRecetas" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -13,10 +13,10 @@ namespace PaginaRecetas.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_RecetasEntities : DbContext
+    public partial class BD_PaginaRecetasEntities2 : DbContext
     {
-        public DB_RecetasEntities()
-            : base("name=DB_RecetasEntities")
+        public BD_PaginaRecetasEntities2()
+            : base("name=BD_PaginaRecetasEntities2")
         {
         }
     
@@ -25,13 +25,11 @@ namespace PaginaRecetas.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Receta> Recetas { get; set; }
-        public virtual DbSet<Ingrediente> Ingredientes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Tipos_Recetas> Tipos_Recetas { get; set; }
-        public virtual DbSet<Unidade> Unidades { get; set; }
-        public virtual DbSet<Ingrediente_Receta> Ingrediente_Receta { get; set; }
-        public virtual DbSet<tablaPrincipal> tablaPrincipals { get; set; }
+        public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
+        public virtual DbSet<COMENTARIOS> COMENTARIOS { get; set; }
+        public virtual DbSet<INGREDIENTES> INGREDIENTES { get; set; }
+        public virtual DbSet<MULTIMEDIA> MULTIMEDIA { get; set; }
+        public virtual DbSet<RECETAS> RECETAS { get; set; }
+        public virtual DbSet<USUARIOS> USUARIOS { get; set; }
     }
 }

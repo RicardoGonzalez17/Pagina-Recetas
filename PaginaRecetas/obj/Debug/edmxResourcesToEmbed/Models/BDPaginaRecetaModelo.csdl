@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_PaginaRecetasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RECETAS">
+    <Key>
+      <PropertyRef Name="ID_Receta" />
+    </Key>
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Ingrediente" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha_alta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Puntuacion" Type="Int64" Nullable="false" />
+    <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CATEGORIAS">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMENTARIOS">
+    <Key>
+      <PropertyRef Name="ID_Comentario" />
+      <PropertyRef Name="ID_Receta" />
+      <PropertyRef Name="ID_Usuario" />
+      <PropertyRef Name="Comentario" />
+      <PropertyRef Name="Fecha" />
+    </Key>
+    <Property Name="ID_Comentario" Type="Int32" Nullable="false" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="INGREDIENTES">
+    <Key>
+      <PropertyRef Name="ID_Ingrediente" />
+      <PropertyRef Name="ID_Receta" />
+      <PropertyRef Name="Ingrediente" />
+    </Key>
+    <Property Name="ID_Ingrediente" Type="Int32" Nullable="false" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="Ingrediente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MULTIMEDIA">
+    <Key>
+      <PropertyRef Name="ID_Multimedia" />
+      <PropertyRef Name="ID_Receta" />
+      <PropertyRef Name="Liga" />
+    </Key>
+    <Property Name="ID_Multimedia" Type="Int32" Nullable="false" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="Liga" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Correo" />
+      <PropertyRef Name="Nivel" />
+      <PropertyRef Name="Contrasenia" />
+    </Key>
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nivel" Type="Int32" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BD_PaginaRecetasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RECETAS" EntityType="Self.RECETAS" />
+    <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
+    <EntitySet Name="COMENTARIOS" EntityType="Self.COMENTARIOS" />
+    <EntitySet Name="INGREDIENTES" EntityType="Self.INGREDIENTES" />
+    <EntitySet Name="MULTIMEDIA" EntityType="Self.MULTIMEDIA" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+  </EntityContainer>
+</Schema>

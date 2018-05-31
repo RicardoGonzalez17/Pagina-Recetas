@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_PaginaRecetasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGORIAS">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RECETAS" Relationship="Self.FK__RECETAS__ID_Cate__25869641" FromRole="CATEGORIAS" ToRole="RECETAS" />
+  </EntityType>
+  <EntityType Name="COMENTARIOS">
+    <Key>
+      <PropertyRef Name="ID_Comentario" />
+    </Key>
+    <Property Name="ID_Comentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="RECETAS" Relationship="Self.FK__COMENTARI__ID_Re__276EDEB3" FromRole="COMENTARIOS" ToRole="RECETAS" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK__COMENTARI__ID_Us__286302EC" FromRole="COMENTARIOS" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="INGREDIENTES">
+    <Key>
+      <PropertyRef Name="ID_Ingrediente" />
+    </Key>
+    <Property Name="ID_Ingrediente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="Ingrediente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RECETAS" Relationship="Self.FK__INGREDIEN__ID_Re__29572725" FromRole="INGREDIENTES" ToRole="RECETAS" />
+  </EntityType>
+  <EntityType Name="MULTIMEDIA">
+    <Key>
+      <PropertyRef Name="ID_Multimedia" />
+    </Key>
+    <Property Name="ID_Multimedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" />
+    <Property Name="Liga" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RECETAS" Relationship="Self.FK__MULTIMEDI__ID_Re__267ABA7A" FromRole="MULTIMEDIA" ToRole="RECETAS" />
+    <Property Name="Imagen" Type="Boolean" />
+    <Property Name="Video" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="RECETAS">
+    <Key>
+      <PropertyRef Name="ID_Receta" />
+    </Key>
+    <Property Name="ID_Receta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha_Alta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Puntuacion" Type="Int32" Nullable="false" />
+    <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
+    <Property Name="ID_Usuario" Type="Int32" />
+    <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK__RECETAS__ID_Cate__25869641" FromRole="RECETAS" ToRole="CATEGORIAS" />
+    <NavigationProperty Name="COMENTARIOS" Relationship="Self.FK__COMENTARI__ID_Re__276EDEB3" FromRole="RECETAS" ToRole="COMENTARIOS" />
+    <NavigationProperty Name="INGREDIENTES" Relationship="Self.FK__INGREDIEN__ID_Re__29572725" FromRole="RECETAS" ToRole="INGREDIENTES" />
+    <NavigationProperty Name="MULTIMEDIA" Relationship="Self.FK__MULTIMEDI__ID_Re__267ABA7A" FromRole="RECETAS" ToRole="MULTIMEDIA" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK__RECETAS__ID_Usua__2A4B4B5E" FromRole="RECETAS" ToRole="USUARIOS" />
+    <Property Name="Likes" Type="Int32" />
+    <Property Name="Dislikes" Type="Int32" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nivel" Type="Int32" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="COMENTARIOS" Relationship="Self.FK__COMENTARI__ID_Us__286302EC" FromRole="USUARIOS" ToRole="COMENTARIOS" />
+    <NavigationProperty Name="RECETAS" Relationship="Self.FK__RECETAS__ID_Usua__2A4B4B5E" FromRole="USUARIOS" ToRole="RECETAS" />
+    <Property Name="NumeroRecetas" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__RECETAS__ID_Cate__25869641">
+    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIAS">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="RECETAS">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMENTARI__ID_Re__276EDEB3">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="COMENTARIOS" Type="Self.COMENTARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="COMENTARIOS">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMENTARI__ID_Us__286302EC">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="COMENTARIOS" Type="Self.COMENTARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="COMENTARIOS">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INGREDIEN__ID_Re__29572725">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="INGREDIENTES" Type="Self.INGREDIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="INGREDIENTES">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MULTIMEDI__ID_Re__267ABA7A">
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="1" />
+    <End Role="MULTIMEDIA" Type="Self.MULTIMEDIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECETAS">
+        <PropertyRef Name="ID_Receta" />
+      </Principal>
+      <Dependent Role="MULTIMEDIA">
+        <PropertyRef Name="ID_Receta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RECETAS__ID_Usua__2A4B4B5E">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="RECETAS">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BD_PaginaRecetasEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
+    <EntitySet Name="COMENTARIOS" EntityType="Self.COMENTARIOS" />
+    <EntitySet Name="INGREDIENTES" EntityType="Self.INGREDIENTES" />
+    <EntitySet Name="MULTIMEDIA" EntityType="Self.MULTIMEDIA" />
+    <EntitySet Name="RECETAS" EntityType="Self.RECETAS" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+    <AssociationSet Name="FK__RECETAS__ID_Cate__25869641" Association="Self.FK__RECETAS__ID_Cate__25869641">
+      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+      <End Role="RECETAS" EntitySet="RECETAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMENTARI__ID_Re__276EDEB3" Association="Self.FK__COMENTARI__ID_Re__276EDEB3">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="COMENTARIOS" EntitySet="COMENTARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMENTARI__ID_Us__286302EC" Association="Self.FK__COMENTARI__ID_Us__286302EC">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="COMENTARIOS" EntitySet="COMENTARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INGREDIEN__ID_Re__29572725" Association="Self.FK__INGREDIEN__ID_Re__29572725">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="INGREDIENTES" EntitySet="INGREDIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MULTIMEDI__ID_Re__267ABA7A" Association="Self.FK__MULTIMEDI__ID_Re__267ABA7A">
+      <End Role="RECETAS" EntitySet="RECETAS" />
+      <End Role="MULTIMEDIA" EntitySet="MULTIMEDIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RECETAS__ID_Usua__2A4B4B5E" Association="Self.FK__RECETAS__ID_Usua__2A4B4B5E">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="RECETAS" EntitySet="RECETAS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

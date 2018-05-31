@@ -196,6 +196,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SessionTimeOutAttribute.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RecetasController.cs" />
@@ -203,44 +204,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBRecetasModel.Context.cs">
+    <Compile Include="Models\BDPaginaRecetasModelo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBRecetasModel.Context.tt</DependentUpon>
+      <DependentUpon>BDPaginaRecetasModelo.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBRecetasModel.cs">
+    <Compile Include="Models\BDPaginaRecetasModelo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBRecetasModel.Designer.cs">
+    <Compile Include="Models\BDPaginaRecetasModelo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBRecetasModel.edmx</DependentUpon>
+      <DependentUpon>BDPaginaRecetasModelo.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ingrediente.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\CATEGORIAS.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ingrediente_Receta.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\COMENTARIOS.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Receta.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\INGREDIENTES.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\MULTIMEDIA.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tablaPrincipal.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\RECETAS.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tipos_Recetas.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Unidade.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Usuario.cs">
-      <DependentUpon>DBRecetasModel.tt</DependentUpon>
+    <Compile Include="Models\USUARIOS.cs">
+      <DependentUpon>BDPaginaRecetasModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -623,15 +618,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
-    <Content Include="Models\DBRecetasModel.Context.tt">
+    <Content Include="ImagesUsuarios\chefO.jpg" />
+    <Content Include="ImagesUsuarios\chefR.jpg" />
+    <Content Include="ImagesUsuarios\dip.jpg" />
+    <Content Include="ImagesUsuarios\fondo1.jpg" />
+    <Content Include="ImagesUsuarios\fondo2.jpg" />
+    <Content Include="ImagesUsuarios\fondo3.jpg" />
+    <Content Include="ImagesUsuarios\fondo4.jpg" />
+    <Content Include="ImagesUsuarios\fondo5.jpg" />
+    <Content Include="ImagesUsuarios\omelette.jpg" />
+    <Content Include="ImagesUsuarios\pasta.jpg" />
+    <Content Include="ImagesUsuarios\pizza.jpg" />
+    <Content Include="ImagesUsuarios\pudin.jpg" />
+    <Content Include="ImagesUsuarios\usuario-masculino-foto-de-perfil_318-37825.jpg" />
+    <Content Include="Models\BDPaginaRecetasModelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBRecetasModel.edmx</DependentUpon>
-      <LastGenOutput>DBRecetasModel.Context.cs</LastGenOutput>
+      <DependentUpon>BDPaginaRecetasModelo.edmx</DependentUpon>
+      <LastGenOutput>BDPaginaRecetasModelo.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBRecetasModel.tt">
+    <Content Include="Models\BDPaginaRecetasModelo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBRecetasModel.edmx</DependentUpon>
-      <LastGenOutput>DBRecetasModel.cs</LastGenOutput>
+      <DependentUpon>BDPaginaRecetasModelo.edmx</DependentUpon>
+      <LastGenOutput>BDPaginaRecetasModelo.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -639,13 +647,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\DBRecetasModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBRecetasModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBRecetasModel.edmx.diagram">
-      <DependentUpon>DBRecetasModel.edmx</DependentUpon>
     </Content>
     <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
@@ -672,6 +673,13 @@
     <Content Include="Content\js\jquery-validation-1.14.0\demo\captcha\fonts\Anorexia.ttf" />
     <Content Include="Content\js\jquery-validation-1.14.0\package.json" />
     <Content Include="Content\js\jquery-validation-1.14.0\README.md" />
+    <EntityDeploy Include="Models\BDPaginaRecetasModelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BDPaginaRecetasModelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BDPaginaRecetasModelo.edmx.diagram">
+      <DependentUpon>BDPaginaRecetasModelo.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
